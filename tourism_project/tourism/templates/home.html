@@ -1,0 +1,219 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Places in the Philippines</title>
+    <style>
+        /* Inline CSS for animations and theme */
+        :root {
+            --primary-color: #ff7f50; /* Coral for tropical vibe */
+            --secondary-color: #ffa500; /* Bright orange for vibrance */
+            --background-color: #e0f7fa; /* Light turquoise */
+            --text-color: #333;
+            --accent-color: #ff6347; /* Tomato for a vibrant pop */
+            --hover-color: #ff4500; /* Orange-red for hover effect */
+            --gradient-bg: linear-gradient(to bottom, #ff7f50, #ffa500); /* Gradient background for header */
+            --footer-bg: #004d40; /* Dark teal for footer */
+            --footer-text-color: #fff; /* White for footer text */
+        }
+
+        body {
+            background-color: var(--background-color);
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: white;
+            background: var(--gradient-bg);
+            padding: 20px 0;
+            text-align: center;
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        /* Gallery Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Image Wrapper */
+        .image-wrapper {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            animation: fadeIn 1s ease-in;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-wrapper:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-wrapper:hover .image-container img {
+            transform: scale(1.1);
+        }
+
+        .caption {
+            padding: 20px;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 1.1rem;
+            border-top: 2px solid var(--accent-color);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        /* Hover animation for caption */
+        .caption:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text-color);
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Adding a subtle hover effect for the gallery items */
+        .image-wrapper:hover {
+            transition: transform 0.4s ease, box-shadow 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>Explore the Wonders of the Philippines</h1>
+    <div class="gallery">
+        <div class="image-wrapper">
+            <div class="image-container">
+                <img src="{% static 'images/banaue.jpg' %}" alt="Banaue Rice Terraces">
+            </div>
+            <div class="caption">
+                The Banaue Rice Terraces in Ifugao are a stunning testament to ancient engineering and the harmony between humans and nature. These 2,000-year-old terraces offer breathtaking views.
+            </div>
+        </div>
+        <div class="image-wrapper">
+            <div class="image-container">
+                <img src="{% static 'images/boracay.jpg' %}" alt="Boracay">
+            </div>
+            <div class="caption">
+                Boracay is known for its powdery white sand beaches and vibrant nightlife. Everyone enjoys the vibes of this beach because of its crystal-clear waters, perfect for relaxation and adventure.
+            </div>
+        </div>
+        <div class="image-wrapper">
+            <div class="image-container">
+                <img src="{% static 'images/chocolatehills.jpg' %}" alt="Chocolate Hills">
+            </div>
+            <div class="caption">
+                A unique geological formation in Bohol, the Chocolate Hills are a breathtaking sight with over a thousand perfectly conical hills, turning brown in the dry season and Tarsiers live here.
+            </div>
+        </div>
+        <div class="image-wrapper">
+            <div class="image-container">
+                <img src="{% static 'images/hundredisland.jpg' %}" alt="Hundred Islands">
+            </div>
+            <div class="caption">
+                Hundred Islands, a collection of 124 islands, offers beautiful beaches, caves, and coral reefs for an unforgettable tropical adventure.
+            </div>
+        </div>
+        <div class="image-wrapper">
+            <div class="image-container">
+                <img src="{% static 'images/ilocossur.jpg' %}" alt="Ilocos Sur">
+            </div>
+            <div class="caption">
+                Rich in cultural heritage, Ilocos Sur features the historic city of Vigan with cobblestone streets and Spanish colonial architecture.
+            </div>
+        </div>
+        <div class="image-wrapper">
+            <div class="image-container">
+                <img src="{% static 'images/mayonvolcano.jpg' %}" alt="Mayon Volcano">
+            </div>
+            <div class="caption">
+                Mayon Volcano is famous for its perfect cone shape and offers stunning views of the surrounding lush landscape.
+            </div>
+        </div>
+        <div class="image-wrapper">
+            <div class="image-container">
+                <img src="{% static 'images/palawan.jpg' %}" alt="Palawan">
+            </div>
+            <div class="caption">
+                Palawan is a paradise for nature lovers, offering unspoiled beauty with turquoise waters, limestone cliffs, and vibrant marine life.
+            </div>
+        </div>
+        <div class="image-wrapper">
+            <div class="image-container">
+                <img src="{% static 'images/siqiour.jpg' %}" alt="Siquijor">
+            </div>
+            <div class="caption">
+                Siquijor is known for its mystical charm, offering pristine beaches, serene waterfalls, and healing traditions—a peaceful escape for wellness seekers and nature lovers alike.
+            </div>
+        </div>
+        <div class="image-wrapper">
+            <div class="image-container">
+                <img src="{% static 'images/batanes.jpg' %}" alt="Batanes">
+            </div>
+            <div class="caption">
+                Batanes is the northernmost gem of the Philippines, offering tranquil beauty with its stone houses, rolling hills, and the warm Ivatan culture.
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Explore the Wonders of the Philippines. All rights reserved.</p>
+    </footer>
+</body>
+</html>
